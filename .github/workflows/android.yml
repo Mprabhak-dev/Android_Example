@@ -47,6 +47,13 @@ jobs:
           name: lint-results
           path: app/build/reports/lint-results-debug.html
 
+  detekt:
+    runs-on: ubuntu-latest
+    steps:
+      - name: "checkout"
+        uses: actions/checkout@v2
+      - name: "detekt"
+        uses: natiginfo/action-detekt-all@1.17.0
 #      - name: Android Test Report
 #        uses: asadmansr/android-test-report-action@v1.2.0
 #        if: ${{ always() }} # IMPORTANT: run Android Test Report regardless
