@@ -44,9 +44,9 @@ jobs:
       - name: Lint results
         uses: actions/upload-artifact@v1
         with:
-          name: app
+          name: lint-results
           path: app/build/reports/lint-results-debug.html
-          
+
 #      - name: Android Test Report
 #        uses: asadmansr/android-test-report-action@v1.2.0
 #        if: ${{ always() }} # IMPORTANT: run Android Test Report regardless
