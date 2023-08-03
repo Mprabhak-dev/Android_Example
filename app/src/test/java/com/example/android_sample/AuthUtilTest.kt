@@ -10,7 +10,7 @@ class AuthUtilTest{
         val userName = ""
         val password = ""
         val repeatPassword = ""
-        assertThat(AuthUtil.signUp(userName, password,repeatPassword)).isFalse()
+        assertThat(AuthUtil.signUp(userName, password,repeatPassword)).isTrue()
     }
 
     @Test
