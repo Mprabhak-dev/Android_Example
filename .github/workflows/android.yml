@@ -77,6 +77,26 @@ jobs:
 #      - name: Android Test Report
 #        uses: asadmansr/android-test-report-action@v1.2.0
 
+  build:
+    name: Upload apk to App Tester
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v3
+      - name: set up JDK 17
+        uses: actions/setup-java@v3
+        with:
+          java-version: 17
+      - name: build release
+        run: bash ./gradlew assembleDebug
+      - name: upload artifact to Firebase App Distribution
+        uses: wzieba/Firebase-Distribution-Github-Action@v1.2.2
+        with:
+          appId: '1:595310838957:android:1698ef7a44681c0c383224'
+          token: '1//0gl8ZxYzSd5ixCgYIARAAGBASNwF-L9IrKUS7fYu3x_iIZtoVMYHy5FVWLyLsKc4CdA8Ks90gpcvzTzBfHFAj2CstQbfgrWsHFYs'
+          groups: testers
+          file: app/build/outputs/apk/debug/app-debug.apk
+
   apk:
     name: Generate APK
     runs-on: ubuntu-latest
